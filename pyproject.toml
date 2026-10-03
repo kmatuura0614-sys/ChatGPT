@@ -1,0 +1,25 @@
+[build-system]
+requires = ["hatchling"]
+build-backend = "hatchling.build"
+
+[project]
+name = "gpt6-decision-layer"
+version = "0.1.0"
+description = "A GPT-6 Luna decision layer for content classification, request routing, and agent action selection."
+readme = "README.md"
+requires-python = ">=3.10"
+dependencies = [
+  "openai>=2.0.0,<3",
+  "pydantic>=2.7,<3",
+]
+
+[project.optional-dependencies]
+dev = ["pytest>=8,<9"]
+
+[tool.hatch.build.targets.wheel]
+packages = ["src/decision_layer"]
+
+[tool.pytest.ini_options]
+pythonpath = ["src"]
+testpaths = ["tests"]
+
